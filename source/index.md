@@ -2,12 +2,10 @@
 title: API Reference
 
 language_tabs:
-  - shell
   - ruby
-  - python
 
 toc_footers:
-  - <a href='#'>Sign Up for a Developer Key</a>
+  - <a href='https://github.daumkakao.com/KakaoTalk-server/maldive_webapp/wiki/protocol-v31'>maldive_webapp protocol v31</a>
   - <a href='http://github.com/tripit/slate'>Documentation Powered by Slate</a>
 
 includes:
@@ -19,7 +17,7 @@ search: true
 # Introduction
 
 <aside class="notice">
-본 API 문서는 톡+파트에서 개발하는 새로운 스펙에 대한 것만 포함하고 있으며, maldive_webapp의 원본 문서는 https://github.daumkakao.com/KakaoTalk-server/maldive_webapp/wiki/protocol-v31 를 참조해주세요.
+본 API 문서는 톡+파트에서 개발하는 새로운 스펙에 대한 것만 포함하고 있으며, maldive_webapp의 원본 문서는 <a href='https://github.daumkakao.com/KakaoTalk-server/maldive_webapp/wiki/protocol-v31'>maldive_webapp protocol v31</a> 를 참조해주세요.
 </aside>
 
 # Preparation
@@ -75,6 +73,68 @@ Index | Name | Description
 3. 없을 경우, '없음'을 뜻하는 해싱값 'e2dc694aee2540c2de6b4a8be2d7718846a0dfb9'
 </aside>
 
+# 톡 X 장소정보(POI) 레버리징 API
+
+## /:agent/scrap/more.json
+
+> Response Example
+
+```ruby
+response = {
+  'status' => 0,
+  'type' => 1,
+  'attachment' => {
+    'kakaoplace' => {
+      'title' => 'RUFXXX',
+      'imageUrl' => 'http://~~~.jpg',
+      'address' => '분당구 삼평동',
+      'new_address' => '분당구 판교역로',
+      'rating' => 3.5,
+      'reviews' => 444,
+      'bookmarks' => 1024,
+      'phoneNumber' => '031-123-1234',
+      'isPlaceUser' => true,   # 북마크 버튼 노출을 판단하기 위한 플래그
+      'isBookmarked' => true,  # place user일 경우 해당 poi를 북마크했는지 여부
+      'hasReputation' => true, # false일 경우 phoneNumber를 출력하고, phoneNumber가 비어있을 경우 영역을 비워둠
+      'url' => 'kakaoplace://~~~',
+      'webUrl' => 'https://place.kakao.com/~~~'
+    },
+    'kakaomap' => {
+      'iconUrl' => 'http://~~~.png',
+      'url' => 'kakaomap://~~~',
+      'webUrl' => 'https://~~~'
+    }
+  },
+  'layout' => ['kakaoplace', 'kakaomap']
+}
+# 아이폰은 약간 구조가 달라서 layout에 대해서는 응답이 달라질 수 있음.
+```
+
+* 인앱브라우저 레버리징 API
+* Domain : sc-talk.kakao.com
+* Request Headers : A S
+* Method : POST
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+url | String | url
+aa | String | uuid (adid)
+
+*  Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상<br>-500: 실패
+type | Integer | 1: location
+attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
+layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
+
+# 프로필 피드 개션 API
+
+To be updated.
+
+<!---
 # Authentication
 
 > To authorize, use this code:
@@ -216,4 +276,4 @@ This endpoint retrieves a specific kitten.
 Parameter | Description
 --------- | -----------
 ID | The ID of the kitten to retrieve
-
+-->
