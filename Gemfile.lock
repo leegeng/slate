@@ -1,5 +1,6 @@
 GEM
   remote: https://rubygems.org/
+  remote: http://gems.iwilab.com:2000/
   specs:
     activesupport (4.1.11)
       i18n (~> 0.6, >= 0.6.9)
