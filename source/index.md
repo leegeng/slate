@@ -2,7 +2,7 @@
 title: API Reference
 
 language_tabs:
-  - ruby
+  - json
 
 toc_footers:
   - <a href='https://github.daumkakao.com/KakaoTalk-server/maldive_webapp/wiki/protocol-v31'>maldive_webapp protocol v31</a>
@@ -79,35 +79,34 @@ Index | Name | Description
 
 > Response Example
 
-```ruby
-response = {
-  'status' => 0,
-  'type' => 1,
-  'attachment' => {
-    'kakaoplace' => {
-      'title' => 'RUFXXX',
-      'imageUrl' => 'http://~~~.jpg',
-      'address' => '분당구 삼평동',
-      'new_address' => '분당구 판교역로',
-      'rating' => 3.5,
-      'reviews' => 444,
-      'bookmarks' => 1024,
-      'phoneNumber' => '031-123-1234',
-      'isPlaceUser' => true,   # 북마크 버튼 노출을 판단하기 위한 플래그
-      'isBookmarked' => true,  # place user일 경우 해당 poi를 북마크했는지 여부
-      'hasReputation' => true, # false일 경우 phoneNumber를 출력하고, phoneNumber가 비어있을 경우 영역을 비워둠
-      'url' => 'kakaoplace://~~~',
-      'webUrl' => 'https://place.kakao.com/~~~'
+```json
+{
+  "status": 0,
+  "type": 1,
+  "attachment": {
+    "kakaoplace": {
+      "title": "RUFXXX",
+      "imageUrl": "http://mud-kage.kakao.co.kr/14/dn/btqbnuv1UPZ/Jb6Ao5o9g7DGxikFnUzkM0/o.jpg",
+      "address": "분당구 삼평동",
+      "new_address": "분당구 판교역로",
+      "rating": 3.5,
+      "reviews": 444,
+      "bookmarks": 1024,
+      "phoneNumber": "031-123-1234",
+      "isPlaceUser": true,
+      "isBookmarked": true,
+      "hasReputation": true,
+      "url": "kakao8491b6cd700e2b9afcdc88ea07ebd4b8://kakaolink?place_id=1463661&",
+      "webUrl": "http://blog.naver.com/PostView.nhn?blogId=sayaka17&logNo=220402985131"
     },
-    'kakaomap' => {
-      'iconUrl' => 'http://~~~.png',
-      'url' => 'kakaomap://~~~',
-      'webUrl' => 'https://~~~'
+    "kakaomap": {
+      "iconUrl": "",
+      "url": "http://m.map.daum.net/place?confirmid=17011742",
+      "webUrl": "http://m.map.daum.net/place?confirmid=17011742"
     }
   },
-  'layout' => ['kakaoplace', 'kakaomap']
+  "layout": ["kakaoplace", "kakaomap"]
 }
-# 아이폰은 약간 구조가 달라서 layout에 대해서는 응답이 달라질 수 있음.
 ```
 
 * 인앱브라우저 레버리징 API
@@ -132,5 +131,40 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
 
 # 프로필 피드 개션 API
 
-To be updated.
+## Objects
 
+### Feed
+
+## /:agent/profile3/my_feeds.json
+
+> Response Example for /:agent/profile3/my_feeds.json 
+
+```json
+{
+  "status": 0,
+  "feeds": [{FEED}, {FEED}],
+  "cursor": 123
+}
+```
+
+* 프로필 피드 개선 API
+* Domain : katalk.kakao.com
+* Request Headers : A S
+* Method : GET
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+cursor | Integer | 페이징을 위한 next cursor
+
+## /:agent/profile3/friend_feeds.json
+
+> Response Example for /:agent/profile3/friend_feeds.json
+
+```json
+{
+  "status": 0,
+  "feeds": [{FEED}, {FEED}],
+  "cursor": 123
+}
+```
