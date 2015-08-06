@@ -129,11 +129,30 @@ type | Integer | 1: location
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
 layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
 
-# 프로필 피드 개션 API
+# 프로필 피드 개선 API
 
 ## Objects
 
 ### Feed
+
+> Example for Feed object
+
+```json
+{
+  "id": 150708982,
+  "serviceName": "카카오스토리",
+  "typeIconUrl": "http://mud-kage.kakao.co.kr/dn/bLZVrN/btqb8k7gArn/EWMuWsk1BYN10XcCSKAwOK/image.png",
+  "downloadId": "486244601",
+  "imageUrl": "http://dn-l1-story.kakao.co.kr/dn/eREGp/hyfWkuyk67/UwQ4G5QhJOcDde6knRJULK/img_l.jpg?width=720&height=960",
+  "thumbnailImageUrl": "http://dn-s-story.kakao.co.kr/dn/eREGp/hyfWkuyk67/UwQ4G5QhJOcDde6knRJULK/img_m.jpg?width=720&height=960",
+  "text": "",
+  "url": "kakaostory://profile?id=53329&name=이경원&from=talk",
+  "serviceUrl": "kakaostory://profile?idtype=0&from=talk&id=1030539",
+  "updatedAt": 1438838295,
+  "webUrl": "https://story.kakao.com/leegeng?_r=talk",
+  "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk"
+}
+```
 
 ## /:agent/profile3/my_feeds.json
 
@@ -147,7 +166,7 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
 }
 ```
 
-* 프로필 피드 개선 API
+* 내 프로필 피드
 * Domain : katalk.kakao.com
 * Request Headers : A S
 * Method : GET
@@ -156,6 +175,14 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
 Name | Type | Description
 --------- | --------- | ---------
 cursor | Integer | 페이징을 위한 next cursor
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+feeds | Array of Feed | Feed 데이터
+cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피드 없음.
 
 ## /:agent/profile3/friend_feeds.json
 
@@ -168,3 +195,22 @@ cursor | Integer | 페이징을 위한 next cursor
   "cursor": 123
 }
 ```
+
+* 친구 프로필 피드
+* Domain : katalk.kakao.com
+* Request Headers : A S
+* Method : GET
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+id | Integer | 친구의 user_id
+cursor | Integer | 페이징을 위한 next cursor
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+feeds | Array of Feed | Feed 데이터
+cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피드 없음.
