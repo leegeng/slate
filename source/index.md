@@ -219,3 +219,50 @@ cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피�
 
 ## /:agent/profile3/like_members.json
 
+> Response Example for /:agent/profile3/like_members.json
+
+```json
+{
+  "status": 0,
+  "members": [
+     {
+      "userId": 1,
+      "nickName": "Stark",
+      "profileImageUrl": "",
+      "fullProfileImageUrl": "",
+      "originalProfileImageUrl": "",
+      "type": -100,
+      "statusMessage": "Good Good"
+     },
+     {
+       "userId": 2,
+       "nickName": "Stark2",
+       "profileImageUrl": "",
+       "fullProfileImageUrl": "",
+       "originalProfileImageUrl": "",
+       "type": -100,
+       "statusMessage": "Good Good Good"
+     }
+  ]
+}
+```
+
+* 피드에 좋아요한 친구 정보
+* Domain : katalk.kakao.com
+* Request Header : A S
+* Method : POST
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+feedId | Integer | 피드 id (어뷰징 방지를 위해 feed id를 받음)
+userIds | Array of userId | 좋아요한 친구 목록에서 클라에 정보가 없는 유저 (max. 100)
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+members | Array of FeedMember | 요청된 사용자들의 기본 프로필 정보 리스트
+
+
