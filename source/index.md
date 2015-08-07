@@ -148,9 +148,15 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
   "text": "",
   "url": "kakaostory://profile?id=53329&name=이경원&from=talk",
   "serviceUrl": "kakaostory://profile?idtype=0&from=talk&id=1030539",
-  "updatedAt": 1438838295,
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
-  "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk"
+  "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk",
+  "updatedAt": 1438838295,
+  "likeUserIds": [1,2,3,4,5],
+  "feedMessage": "스토리 게시물을 등록했습니다.",
+  "permission": 0,
+  "liked": false,
+  "type": 1,
+  "metas": {}
 }
 ```
 
@@ -160,14 +166,22 @@ id | Integer | 피드의 id
 serviceName | String | 피드 제공 서비스명
 typeIconUrl | String | 피드 제공 서비스 아이콘 url
 downloadId | String | 피드 제공 서비스의 download id (설치 유무 및 마켓 이동을 위한 정보)
-imageUrl | String | 피드의 메인 이미지 url
-thumbnailImageUrl | String | 피드의 메인 이미지의 썸네일 url
-text | String | 피드의 텍스트
+imageUrl? | String | 피드의 메인 이미지 url
+thumbnailImageUrl? | String | 피드의 메인 이미지의 썸네일 url
+text? | String | 피드의 텍스트
 url | String | 피드를 눌렀을 때 이동할 앱스킴
 serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동할 앱스킴
-webUrl | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
-serviceWebUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
+webUrl? | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
+serviceWebUrl? | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 updatedAt | Integer | 피드 콘텐츠의 update 시간
+likeUserIds | Array of Integer | 피드에 좋아요한 친구 리스트
+feedMessage | String | 피드 헤더에 출력되는 메세지
+permission? | Integer | 공개범위 (본인 피드에만 내려옴)
+liked? | Boolean | 좋아요 여부 (친구 피드에만 내려움)
+type | Integer | 피드 템플릿 타입 (참고: xxx)
+metas | FeedMeta | 부가 정보 필드 ...
+
+### FeedMeta
 
 ## /:agent/profile3/my_feeds.json
 
@@ -239,4 +253,6 @@ cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피�
 ## /:agent/profile3/change_feed_permission.json
 
 ## /:agent/profile3/remove_feed.json
+
+## /:agent/profile3/like_members.json
 
