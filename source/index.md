@@ -217,6 +217,22 @@ cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피�
 
 ## /:agent/profile3/remove_feed.json
 
+* 프로필 3.0 피드 삭제
+* Domain : katalk.kakao.com
+* Required Headers : A, S
+* Method : POST
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+feed_id | Integer | Feed의 id
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+
 ## /:agent/profile3/like_members.json
 
 > Response Example for /:agent/profile3/like_members.json
