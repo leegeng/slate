@@ -154,6 +154,21 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
 }
 ```
 
+Name | Type | Description
+--------- | --------- | ---------
+id | Integer | 피드의 id
+serviceName | String | 피드 제공 서비스명
+typeIconUrl | String | 피드 제공 서비스 아이콘 url
+downloadId | String | 피드 제공 서비스의 download id (설치 유무 및 마켓 이동을 위한 정보)
+imageUrl | String | 피드의 메인 이미지 url
+thumbnailImageUrl | String | 피드의 메인 이미지의 썸네일 url
+text | String | 피드의 텍스트
+url | String | 피드를 눌렀을 때 이동할 앱스킴
+serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동할 앱스킴
+webUrl | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
+serviceWebUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
+updatedAt | Integer | 피드 콘텐츠의 update 시간
+
 ## /:agent/profile3/my_feeds.json
 
 > Response Example for /:agent/profile3/my_feeds.json 
