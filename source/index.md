@@ -130,6 +130,22 @@ metas | FeedMeta | 부가 정보 필드 ...
 
 ### FeedMeta
 
+> Example for FeedMeta object
+
+```json
+{
+  "profileImagePath": "/talkp/wkka1wrLYf/5VV1GnauTwKAgRkBGEZhI0/uphy4g.jpg",
+  "serviceExtraInfo": ["느낌 6", "댓글 4", "공유 10"],
+  "extraImages": 5 
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+profileImagePath | String | 프로필 이미지 변경 피드의 경우, update_settings.json으로 바로 넘길 수 있는 path를 내려줌.
+serviceExtraInfo | Array of String | blog type 피드의 경우, 하단에 노출될 추가 정보를 내려줌.
+extraImages | Integer | blog type 피드의 경우, 원본 게시물이 두 개 이상의 이미지가 있을 경우 추가 이미지 여부를 알려줄 수 있도록 이미지 수를 내려줌.
+
 ## /:agent/profile3/my_feeds.json
 
 > Response Example for /:agent/profile3/my_feeds.json 
