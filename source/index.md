@@ -190,6 +190,7 @@ updatedAt | Integer | 피드 콘텐츠의 update 시간
 Name | Type | Description
 --------- | --------- | ---------
 cursor | Integer | 페이징을 위한 next cursor
+type? | String | 'profile' 일 경우 프로필 이미지 변경 피드만 내려줌. 
 
 * Response
 
@@ -221,6 +222,7 @@ Name | Type | Description
 --------- | --------- | ---------
 id | Integer | 친구의 user_id
 cursor | Integer | 페이징을 위한 next cursor
+type? | String | 'profile' 일 경우 프로필 이미지 변경 피드만 내려줌.
 
 * Response
 
@@ -229,3 +231,12 @@ Name | Type | Description
 status | Integer | 0: 정상, -500: 에러
 feeds | Array of Feed | Feed 데이터
 cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피드 없음.
+
+## /:agent/profile3/like.json
+
+## /:agent/profile3/unlike.json
+
+## /:agent/profile3/change_feed_permission.json
+
+## /:agent/profile3/remove_feed.json
+
