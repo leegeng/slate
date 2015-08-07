@@ -209,9 +209,61 @@ status | Integer | 0: 정상, -500: 에러
 feeds | Array of Feed | Feed 데이터
 cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피드 없음.
 
+## /:agent/profile3/feed.json
+
+* 단일 프로필 피드 정보 요청
+* Domain : katalk.kakao.com
+* Required Headers : A, S
+* Method : GET
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+user_id? | Integer | 친구의 user_id
+feed_id | Integer | Feed의 id
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+feeds | Array of Feed | Feed 데이터
+
 ## /:agent/profile3/like.json
 
+* 프로필 피드에 대한 좋아요
+* Domain : katalk.kakao.com
+* Required Headers : A, S
+* Method : GET
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+feed_id | Integer | Feed의 id
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+
 ## /:agent/profile3/unlike.json
+
+* 프로필 피드에 대한 좋아요 취소
+* Domain : katalk.kakao.com
+* Required Headers : A, S
+* Method : GET
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+feed_id | Integer | Feed의 id
+
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
 
 ## /:agent/profile3/change_feed_permission.json
 
