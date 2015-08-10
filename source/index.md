@@ -103,7 +103,7 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
   "permission": 0,
   "liked": false,
   "type": 1,
-  "metas": {}
+  "meta": {}
 }
 ```
 
@@ -126,7 +126,7 @@ feedMessage | String | 피드 헤더에 출력되는 메세지
 permission? | Integer | 공개범위 (본인 피드에만 내려옴)
 liked? | Boolean | 좋아요 여부 (친구 피드에만 내려움)
 type | Integer | 피드 템플릿 타입 (참고: xxx)
-metas | FeedMeta | 부가 정보 필드 ...
+meta | FeedMeta | 부가 정보 필드 ...
 
 ### FeedMeta
 
@@ -136,7 +136,12 @@ metas | FeedMeta | 부가 정보 필드 ...
 {
   "profileImagePath": "/talkp/wkka1wrLYf/5VV1GnauTwKAgRkBGEZhI0/uphy4g.jpg",
   "serviceExtraInfo": ["느낌 6", "댓글 4", "공유 10"],
-  "extraImages": 5 
+  "extraImages": 5,
+  "backgroundImagePath": "http://th-p.talk.kakao.co.kr/talkp/wkkLnFWcjv/pRktMkmNRMJjnsvWSeRLC1/up1m4v.jpg",
+  "music": {
+    "artist": "옥상달빛",
+    "track": "희안한 시대"
+  }
 }
 ```
 
@@ -145,6 +150,8 @@ Name | Type | Description
 profileImagePath | String | 프로필 이미지 변경 피드의 경우, update_settings.json으로 바로 넘길 수 있는 path를 내려줌.
 serviceExtraInfo | Array of String | blog type 피드의 경우, 하단에 노출될 추가 정보를 내려줌.
 extraImages | Integer | blog type 피드의 경우, 원본 게시물이 두 개 이상의 이미지가 있을 경우 추가 이미지 여부를 알려줄 수 있도록 이미지 수를 내려줌.
+backgroundImagePath | String | 상태메세지 변경 피드의 경우, 변경 시점의 backgroundImagePath를 가지고 있음.
+music | Music | music 피드의 경우 추가 메타 정보를 가짐. 
 
 ## /:agent/profile3/my_feeds.json
 
