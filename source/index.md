@@ -350,4 +350,48 @@ Name | Type | Description
 status | Integer | 0: 정상, -500: 에러
 members | Array of FeedMember | 요청된 사용자들의 기본 프로필 정보 리스트
 
+# 톡 X 스토리 레버리징 1차(프로필 배경/프사 이미지) API
 
+## /:agent/profile3/get_story_profile_bg_image.json
+
+> Response Example
+
+```json
+{
+  "status": 0,
+  "url": "http://alpha-api1-kage.kakao.com/dn/hFeAL/oWajbsbKKX/bxUkoZOud0zTqX4LuK65Y0/img_xl.jpg?width=1707&height=1281"
+}
+```
+
+* 스토리에 설정된 배경 이미지 URL 가져오기
+* Domain : katalk.kakao.com
+* Request Headers : A S
+* Method : GET
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상<br>-500: 실패
+url | String | 현재 스토리에 설정된 배경 이미지의 URL
+
+## /:agent/profile3/get_story_profile_image.json
+
+> Response Example
+
+```json
+{
+  "status": 0,
+  "url": "http://alpha-api1-kage.kakao.com/dn/hFeAL/oWajbsbKKX/bxUkoZOud0zTqX4LuK65Y0/img_xl.jpg?width=1707&height=1281"
+}
+```
+
+* 스토리에 설정된 프사 이미지 URL 가져오기
+* Domain : katalk.kakao.com
+* Request Headers : A S
+* Method : GET
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상<br>-500: 실패
+url | String | 현재 스토리에 설정된 프사 이미지의 URL
