@@ -234,7 +234,7 @@ feed_id | Integer | Feed의 id
 Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상, -500: 에러
-feeds | Array of Feed | Feed 데이터
+feed | Feed | Feed 데이터
 
 ## /:agent/profile3/like.json
 
