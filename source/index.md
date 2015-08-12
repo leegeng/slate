@@ -246,6 +246,7 @@ feed | Feed | Feed 데이터
 
 Name | Type | Description
 --------- | --------- | ---------
+user_id | Integer | 피드를 소유한 사용자의 user_id
 feed_id | Integer | Feed의 id
 
 * Response
@@ -264,6 +265,7 @@ status | Integer | 0: 정상, -500: 에러
 
 Name | Type | Description
 --------- | --------- | ---------
+user_id | Integer | 피드를 소유한 사용자의 user_id
 feed_id | Integer | Feed의 id
 
 * Response
