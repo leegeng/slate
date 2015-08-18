@@ -154,13 +154,11 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
 
 ```json
 {
-  "id": 150708982,
+  "id": "1:1234_567890",
   "serviceName": "카카오스토리",
   "typeIconUrl": "http://mud-kage.kakao.co.kr/dn/bLZVrN/btqb8k7gArn/EWMuWsk1BYN10XcCSKAwOK/image.png",
   "downloadId": "486244601",
-  "imageUrl": "http://dn-l1-story.kakao.co.kr/dn/eREGp/hyfWkuyk67/UwQ4G5QhJOcDde6knRJULK/img_l.jpg?width=720&height=960",
-  "thumbnailImageUrl": "http://dn-s-story.kakao.co.kr/dn/eREGp/hyfWkuyk67/UwQ4G5QhJOcDde6knRJULK/img_m.jpg?width=720&height=960",
-  "text": "",
+  "contents": [ContentItem, ContentItem],
   "url": "kakaostory://profile?id=53329&name=이경원&from=talk",
   "serviceUrl": "kakaostory://profile?idtype=0&from=talk&id=1030539",
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
@@ -171,19 +169,17 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
   "permission": 0,
   "liked": false,
   "type": 1,
-  "meta": {}
+  "extra": {}
 }
 ```
 
 Name | Type | Description
 --------- | --------- | ---------
-id | Integer | 피드의 id
+id | String | 피드의 고유 id
 serviceName | String | 피드 제공 서비스명
 typeIconUrl | String | 피드 제공 서비스 아이콘 url
 downloadId | String | 피드 제공 서비스의 download id (설치 유무 및 마켓 이동을 위한 정보)
-imageUrl? | String | 피드의 메인 이미지 url
-thumbnailImageUrl? | String | 피드의 메인 이미지의 썸네일 url
-text? | String | 피드의 텍스트
+contents | Array of ContentItem | 피드 구성 요소 리스트
 url | String | 피드를 눌렀을 때 이동할 앱스킴
 serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동할 앱스킴
 webUrl? | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
@@ -194,11 +190,11 @@ feedMessage | String | 피드 헤더에 출력되는 메세지
 permission? | Integer | 공개범위 (본인 피드에만 내려옴)
 liked? | Boolean | 좋아요 여부 (친구 피드에만 내려움)
 type | Integer | 피드 템플릿 타입 (참고: xxx)
-meta | FeedMeta | 부가 정보 필드 ...
+extra | FeedExtra | 부가 정보 필드 ...
 
-### FeedMeta
+### FeedExtra
 
-> Example for FeedMeta object
+> Example for FeedExtra object
 
 ```json
 {
@@ -220,6 +216,22 @@ serviceExtraInfo | Array of String | blog type 피드의 경우, 하단에 노�
 extraImages | Integer | blog type 피드의 경우, 원본 게시물이 두 개 이상의 이미지가 있을 경우 추가 이미지 여부를 알려줄 수 있도록 이미지 수를 내려줌.
 backgroundImagePath | String | 상태메세지 변경 피드의 경우, 변경 시점의 backgroundImagePath를 가지고 있음.
 music | Music | music 피드의 경우 추가 메타 정보를 가짐. 
+
+### ContentItem
+
+> Example for ContentItem object
+
+```json
+{
+  "type": "image",
+  "value": "http://dn-s-story.kakao.co.kr/dn/eREGp/hyfWkuyk67/UwQ4G5QhJOcDde6knRJULK/img_m.jpg?width=720&height=960"
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+type | String | ContentItem의 타입 명시 자세한 스펙은 () 참조
+value | Object(String or Array of ContentItems) | 각 타입에 대한 속성값
 
 ## /:agent/profile3/my_feeds.json
 
@@ -295,7 +307,7 @@ cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피�
 Name | Type | Description
 --------- | --------- | ---------
 user_id? | Integer | 친구의 user_id
-feed_id | Integer | Feed의 id
+feed_id | String | Feed의 id
 
 * Response
 
@@ -315,7 +327,7 @@ feed | Feed | Feed 데이터
 Name | Type | Description
 --------- | --------- | ---------
 user_id | Integer | 피드를 소유한 사용자의 user_id
-feed_id | Integer | Feed의 id
+feed_id | String | Feed의 id
 
 * Response
 
@@ -334,7 +346,7 @@ status | Integer | 0: 정상, -500: 에러
 Name | Type | Description
 --------- | --------- | ---------
 user_id | Integer | 피드를 소유한 사용자의 user_id
-feed_id | Integer | Feed의 id
+feed_id | String | Feed의 id
 
 * Response
 
@@ -352,7 +364,7 @@ status | Integer | 0: 정상, -500: 에러
 
 Name | Type | Description
 --------- | --------- | ---------
-feed_id | Integer | Feed의 id
+feed_id | String | Feed의 id
 permission | Integer | 공개범위
 
 * Response
@@ -371,7 +383,7 @@ status | Integer | 0: 정상, -500: 에러
 
 Name | Type | Description
 --------- | --------- | ---------
-feed_id | Integer | Feed의 id
+feed_id | String | Feed의 id
 
 * Response
 
@@ -417,7 +429,7 @@ status | Integer | 0: 정상, -500: 에러
 
 Name | Type | Description
 --------- | --------- | ---------
-feedId | Integer | 피드 id (어뷰징 방지를 위해 feed id를 받음)
+feedId | String | 피드 id (어뷰징 방지를 위해 feed id를 받음)
 userIds | Array of userId | 좋아요한 친구 목록에서 클라에 정보가 없는 유저 (max. 100)
 
 * Response
