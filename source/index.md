@@ -22,6 +22,92 @@ search: true
 
 # 톡 X 장소정보(POI) 레버리징 API
 
+## Objects
+
+### kakaoplace
+
+> Example for KakaoPlace object
+
+```json
+{
+  "title": "RUFXXX",
+  "imageUrl": "http://mud-kage.kakao.co.kr/14/dn/btqbnuv1UPZ/Jb6Ao5o9g7DGxikFnUzkM0/o.jpg",
+  "address": "분당구 삼평동",
+  "new_address": "분당구 판교역로",
+  "rating": 3.5,
+  "reviews": 444,
+  "bookmarks": 1024,
+  "phoneNumber": "031-123-1234",
+  "isPlaceUser": true,
+  "isBookmarked": true,
+  "hasReputation": true,
+  "url": "kakao8491b6cd700e2b9afcdc88ea07ebd4b8://kakaolink?place_id=1463661&",
+  "webUrl": "http://blog.naver.com/PostView.nhn?blogId=sayaka17&logNo=220402985131", 
+  "downloadId": "com.kakao.place"
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+title | String | 장소명
+imageUrl | String | 장소 대표 이미지
+address | String | 장소에 대한 주소
+new_address | String | 장소에 대한 도로명 주소
+rating | Float | 장소에 대한 평가 점수
+reviews | Integer | 장소에 대한 리뷰 수 
+bookmarks | Integer | 장소에 대한 북마크 수
+phoneNumber | String | 장소에 대한 전화번호
+isPlaceUser | Boolean | 사용자의 카카오플레이스 가입여부
+isBookmarked? | Boolean | 카카오플레이스 사용자일 경우 해당 장소를 북마크했는지 여부
+hasReputation | Boolean | rating, reviews가 있는지 여부. 이 변수를 통해 phoneNumber를 보여줄지 rating/reviews를 보여줄지 판단함.
+url | String | 앱스킴
+webUrl | String | 앱이 설치되어 있지 않을 경우 연결할 모바일웹 주소
+downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
+
+### kakaomap
+
+> Example for KakaoMap object
+
+```json
+{
+  "iconUrl": "",
+  "url": "http://m.map.daum.net/place?confirmid=17011742",
+  "webUrl": "http://m.map.daum.net/place?confirmid=17011742",
+  "downloadId": "com.kakao.map"
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+iconUrl | String | 노출할 아이콘 URL (공백일 경우 디폴트 이미지)
+url | String | 앱스킴
+webUrl | String | 앱이 설치되어 있지 않을 경우 연결할 모바일웹 주소
+downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
+
+### banner
+
+> Example for Banner Object
+
+```json
+{
+  "eventId": "kakaopay-release-20150804",
+  "bannerType": "bottom",
+  "imageUrl": "http://img.talk.kakao.co.kr/images/banners/1439450445.png",
+  "url": "",
+  "webUrl": "http://paybiz-web.kakao.com/event/kakaopay/index201508/kakaopay_event_cgv.html",
+  "downloadId": ""
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+eventId | String | 인앱 레버리지 배너에 대한 고유 아이디
+bannerType | String | 배너 타입
+imageUrl | String | 배너 이미지 url
+url | String | 앱스킴 (앱스킴 연동이 필요한 경우)
+webUrl | String | 앱스킴이 존재하는 경우, 앱이 없을 때, 그렇지 않은 경우 웹페이지로 이동할 url 
+downloadId | String | 앱스킴이 있는 경우 앱 설치 여부를 판단하기 위한 downloadId
+
 ## /:agent/scrap/more.json
 
 > Response Example
@@ -31,26 +117,8 @@ search: true
   "status": 0,
   "type": 1,
   "attachment": {
-    "kakaoplace": {
-      "title": "RUFXXX",
-      "imageUrl": "http://mud-kage.kakao.co.kr/14/dn/btqbnuv1UPZ/Jb6Ao5o9g7DGxikFnUzkM0/o.jpg",
-      "address": "분당구 삼평동",
-      "new_address": "분당구 판교역로",
-      "rating": 3.5,
-      "reviews": 444,
-      "bookmarks": 1024,
-      "phoneNumber": "031-123-1234",
-      "isPlaceUser": true,
-      "isBookmarked": true,
-      "hasReputation": true,
-      "url": "kakao8491b6cd700e2b9afcdc88ea07ebd4b8://kakaolink?place_id=1463661&",
-      "webUrl": "http://blog.naver.com/PostView.nhn?blogId=sayaka17&logNo=220402985131"
-    },
-    "kakaomap": {
-      "iconUrl": "",
-      "url": "http://m.map.daum.net/place?confirmid=17011742",
-      "webUrl": "http://m.map.daum.net/place?confirmid=17011742"
-    }
+    "kakaoplace": KakaoPlaceObject,
+    "kakaomap": KakaoMapObject
   },
   "layout": ["kakaoplace", "kakaomap"]
 }
@@ -72,7 +140,7 @@ aa | String | uuid (adid)
 Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상<br>-500: 실패
-type | Integer | 1: location
+type | Integer | 1: location<br>2: bottom_banner<br>3: center_banner
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
 layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
 
