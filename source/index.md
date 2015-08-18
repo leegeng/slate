@@ -140,7 +140,7 @@ aa | String | uuid (adid)
 Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상<br>-500: 실패
-type | Integer | 1: location<br>2: bottom_banner<br>3: center_banner
+type | Integer | 1: location<br>2: banner
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
 layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
 
