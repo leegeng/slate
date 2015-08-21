@@ -241,7 +241,7 @@ value | Object(String or Array of ContentItems) | 각 타입에 대한 속성값
 {
   "status": 0,
   "feeds": [{FEED}, {FEED}],
-  "cursor": 123
+  "last": false
 }
 ```
 
@@ -272,7 +272,7 @@ last | boolean | 다음 피드가 있는지 여부
 {
   "status": 0,
   "feeds": [{FEED}, {FEED}],
-  "cursor": 123
+  "last": true
 }
 ```
 
