@@ -262,7 +262,7 @@ Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상, -500: 에러
 feeds | Array of Feed | Feed 데이터
-cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피드 없음.
+last | boolean | 다음 피드가 있는지 여부
 
 ## /:agent/profile3/friend_feeds.json
 
@@ -294,7 +294,7 @@ Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상, -500: 에러
 feeds | Array of Feed | Feed 데이터
-cursor | Integer | 페이징을 위한 next cursor. 0일경우에는 다음 피드 없음.
+last | boolean | 다음 피드가 있는지 여부
 
 ## /:agent/profile3/feed.json
 
