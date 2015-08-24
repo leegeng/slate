@@ -448,11 +448,7 @@ members | Array of FeedMember | 요청된 사용자들의 기본 프로필 정�
 ```json
 {
   "status": 0,
-  "url": "http://alpha-api1-kage.kakao.com/dn/hFeAL/oWajbsbKKX/bxUkoZOud0zTqX4LuK65Y0/img_xl.jpg?width=1707&height=1281",
-  "story_link": {
-    "app": "kakaostory://profile?id=20005546&name=마커스&from=talk",
-    "web": "http://alpha-story-web.kakao.com/marcus4"
-  }
+  "url": "http://alpha-api1-kage.kakao.com/dn/hFeAL/oWajbsbKKX/bxUkoZOud0zTqX4LuK65Y0/img_xl.jpg?width=1707&height=1281"
 }
 ```
 
@@ -474,11 +470,7 @@ url | String | 현재 스토리에 설정된 배경 이미지의 URL
 ```json
 {
   "status": 0,
-  "url": "http://alpha-api1-kage.kakao.com/dn/bWhRXQ/oWaOIJSfiE/81js2k5Tftr4QHBX2qMWTk/img_xl.jpg?width=1281&height=1707",
-  "story_link": {
-    "app": "kakaostory://profile?id=20005546&name=마커스&from=talk",
-    "web": "http://alpha-story-web.kakao.com/marcus4"
-  }
+  "url": "http://alpha-api1-kage.kakao.com/dn/bWhRXQ/oWaOIJSfiE/81js2k5Tftr4QHBX2qMWTk/img_xl.jpg?width=1281&height=1707"
 }
 ```
 
