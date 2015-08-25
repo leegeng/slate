@@ -164,10 +164,9 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
   "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk",
   "updatedAt": 1438838295,
-  "likeUserIds": [1,2,3,4,5],
+  "like": Like
   "feedMessage": "스토리 게시물을 등록했습니다.",
   "permission": 0,
-  "liked": false,
   "type": 1,
   "extra": {}
 }
@@ -185,12 +184,30 @@ serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동�
 webUrl? | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 serviceWebUrl? | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 updatedAt | Integer | 피드 콘텐츠의 update 시간
-likeUserIds | Array of Integer | 피드에 좋아요한 친구 리스트
+like | Like | 피드에 대한 좋아요 객체
 feedMessage | String | 피드 헤더에 출력되는 메세지
 permission? | Integer | 공개범위 (본인 피드에만 내려옴)
-liked? | Boolean | 좋아요 여부 (친구 피드에만 내려움)
 type | Integer | 피드 템플릿 타입 (참고: xxx)
 extra | FeedExtra | 부가 정보 필드 ...
+
+### Like
+
+> Example for Like object
+```json
+{
+  "likes": 123,
+  "likeUserIds": [1,2,3,4,5],
+  "cursor": 0,
+  "liked": false
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+likes | Integer | 피드에 좋아요한 친구 수
+likeUserIds | Array of Integer | 피드에 좋아요한 친구 리스트 (max=30)
+cursor | long | 피드에 좋아요한 친구 리스트 페이징을 위한 cursor
+liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드인 경우)
 
 ### FeedExtra
 
