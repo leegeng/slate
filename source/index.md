@@ -193,6 +193,7 @@ extra | FeedExtra | 부가 정보 필드 ...
 ### Like
 
 > Example for Like object
+
 ```json
 {
   "likes": 123,
