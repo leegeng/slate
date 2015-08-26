@@ -164,7 +164,7 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
   "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk",
   "updatedAt": 1438838295,
-  "like": Like
+  "like": Like,
   "feedMessage": "스토리 게시물을 등록했습니다.",
   "permission": 0,
   "type": 1,
