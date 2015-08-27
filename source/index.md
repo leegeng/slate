@@ -30,6 +30,7 @@ search: true
 
 ```json
 {
+  "placeId": 1234,
   "title": "RUFXXX",
   "imageUrl": "http://mud-kage.kakao.co.kr/14/dn/btqbnuv1UPZ/Jb6Ao5o9g7DGxikFnUzkM0/o.jpg",
   "address": "분당구 삼평동",
@@ -49,6 +50,7 @@ search: true
 
 Name | Type | Description
 --------- | --------- | ---------
+placeId | Long | 장소의 Id (로컬, 플레이스 연동용)
 title | String | 장소명
 imageUrl | String | 장소 대표 이미지
 address | String | 장소에 대한 주소
