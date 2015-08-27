@@ -173,8 +173,6 @@ layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가
 
 ## /:agent/scrap/more_action.json
 
-> Response Example
-
 * 인앱브라우저 레버리징 API (위젯에 사용자 액션이 존재하는 경우에 사용함)
 * Domain : sc-talk.kakao.com
 * Request Headers : A S
