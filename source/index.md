@@ -144,7 +144,8 @@ plusFriendId? | Integer | service="plusFriend" 일 경우에만 내려오며, �
   "type": 1,
   "attachment": {
     "kakaoplace": KakaoPlaceObject,
-    "kakaomap": KakaoMapObject
+    "kakaomap": KakaoMapObject,
+    "banners": [BannerObject]
   },
   "layout": ["kakaoplace", "kakaomap"]
 }
@@ -169,6 +170,28 @@ status | Integer | 0: 정상<br>-500: 실패
 type | Integer | 1: location<br>2: banner
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
 layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
+
+## /:agent/scrap/more_action.json
+
+> Response Example
+
+* 인앱브라우저 레버리징 API (위젯에 사용자 액션이 존재하는 경우에 사용함)
+* Domain : sc-talk.kakao.com
+* Request Headers : A S
+* Method : POST
+* Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+service | String | 어느 서비스에 대한 액션인지 명시 (more.json의 응답으로 받은 객체명을 보냄 ex. kakaoplace)
+action | String | 액션명<br>kakaoplace: add(북마크하기) / delete(북마크해제)
+place_id? | Long | kakaoplace에 대한 요청일 경우 필수값이며 받은 값을 그대로 올린다.
+ 
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상<be>-500: 실패
 
 # 프로필 피드 개선 API
 
