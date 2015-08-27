@@ -86,27 +86,51 @@ downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
 
 ### banner
 
-> Example for Banner Object
+> Example for banner object
 
 ```json
 {
   "eventId": "kakaopay-release-20150804",
-  "bannerType": "bottom",
+  "bannerType": 0,
   "imageUrl": "http://img.talk.kakao.co.kr/images/banners/1439450445.png",
   "url": "",
   "webUrl": "http://paybiz-web.kakao.com/event/kakaopay/index201508/kakaopay_event_cgv.html",
-  "downloadId": ""
+  "downloadId": "",
+  "service": "kakaopay",
+  "extra": {
+    "relation": 0,
+    "plusFriendId": 1234
+  }
 }
 ```
 
 Name | Type | Description
 --------- | --------- | ---------
 eventId | String | 인앱 레버리지 배너에 대한 고유 아이디
-bannerType | String | 배너 타입
+bannerType | Integer | 배너 타입<br>0: 하단배너, 1: 전면배너
 imageUrl | String | 배너 이미지 url
 url | String | 앱스킴 (앱스킴 연동이 필요한 경우)
 webUrl | String | 앱스킴이 존재하는 경우, 앱이 없을 때, 그렇지 않은 경우 웹페이지로 이동할 url 
 downloadId | String | 앱스킴이 있는 경우 앱 설치 여부를 판단하기 위한 downloadId
+service | String | 배너 레버리지 서비스명
+extra? | Hash | 노출 대상에 대한 추가 정보 
+
+### bannerExtra
+
+> Example for bannerExtra object
+
+```json
+{
+  "relation": 0,
+  "plusFriendId": 1234
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든 대상<br>1: 유저가 서비스와 관계가 없을 경우 (미가입자 혹은 친구 아님, 서비스->사용자 단방향 친구 개념)<br>2: 유저가 서비스와 관계가 있을 경우 (가입자 혹은 친구 관계, 서비스<->사용자 쌍방 친구 개념) 
+plusFriendId? | Integer | service="plusFriend" 일 경우에만 내려오며, 플친의 user_id로 친구 여부를 판단하는 용도
+
 
 ## /:agent/scrap/more.json
 
