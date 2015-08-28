@@ -134,7 +134,7 @@ relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든
 plusFriendId? | Integer | service="plusFriend" 일 경우에만 내려오며, 플친의 user_id로 친구 여부를 판단하는 용도
 
 
-## /:agent/scrap/more.json
+## /:agent/inapp_widget/more.json
 
 > Response Example
 
@@ -152,7 +152,7 @@ plusFriendId? | Integer | service="plusFriend" 일 경우에만 내려오며, �
 ```
 
 * 인앱브라우저 레버리징 API
-* Domain : sc-talk.kakao.com
+* Domain : katalk.kakao.com
 * Request Headers : A S
 * Method : POST
 * Request Parameters
@@ -171,10 +171,10 @@ type | Integer | 1: location<br>2: banner
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
 layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
 
-## /:agent/scrap/more_action.json
+## /:agent/inapp_widget/more_action.json
 
 * 인앱브라우저 레버리징 API (위젯에 사용자 액션이 존재하는 경우에 사용함)
-* Domain : sc-talk.kakao.com
+* Domain : katalk.kakao.com
 * Request Headers : A S
 * Method : POST
 * Request Parameters
