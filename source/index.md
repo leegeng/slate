@@ -270,6 +270,11 @@ liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드
   "music": {
     "artist": "옥상달빛",
     "track": "희안한 시대"
+  },
+  "from": {
+    "downloadId": "com.kakao.story",
+    "appUrl": "kakaostory://profile?idtype=0&from=talk&id=491632",
+    "webUrl": "https://alpha-story-web.kakao.com/_FTCzg4?_r=talk"
   }
 }
 ```
@@ -281,6 +286,7 @@ serviceExtraInfo | Array of String | blog type 피드의 경우, 하단에 노�
 extraImages | Integer | blog type 피드의 경우, 원본 게시물이 두 개 이상의 이미지가 있을 경우 추가 이미지 여부를 알려줄 수 있도록 이미지 수를 내려줌.
 backgroundImagePath | String | 상태메세지 변경 피드의 경우, 변경 시점의 backgroundImagePath를 가지고 있음.
 music | Music | music 피드의 경우 추가 메타 정보를 가짐. 
+from | Hash | 프사/배경 이미지의 경우 다른 서비스에서 가져온 경우 값을 가짐.
 
 ### ContentItem
 
