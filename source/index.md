@@ -141,7 +141,7 @@ relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든
   "userId": 50793722,
   "type": "p",
   "imageUrl": "/talkp/wkkiFAguIn/xAYwVpmuZy6GLjAhC5yd91/det19e_110x110_c.jpg",
-  "title": "olleh"
+  "title": "olleh",
   "status": "반가워요, olleh 플러스친구입니다.",
   "action": 0,
   "relation": 0
