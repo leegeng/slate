@@ -123,8 +123,7 @@ extra? | Hash | 노출 대상에 대한 추가 정보
 
 ```json
 {
-  "relation": 0,
-  "plusFriendId": 1234
+  "relation": 0
 }
 ```
 
@@ -138,13 +137,16 @@ relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든
 
 ```json
 {
-  "userId": 50793722,
+  "userId": 53247774,
   "type": "p",
-  "imageUrl": "/talkp/wkkiFAguIn/xAYwVpmuZy6GLjAhC5yd91/det19e_110x110_c.jpg",
-  "title": "olleh",
-  "status": "반가워요, olleh 플러스친구입니다.",
+  "imageUrl": "/talkp/wkiOEvV5mo/LgBrddHUXckl6eCZA96gJ0/3wyzxf_110x110_c.jpg",
+  "url": "kakaoplus://plusfriend/friend/@나이키닷컴",
+  "webUrl": "",
+  "downloadId": "com.kakao.talk",
+  "title": "나이키닷텀",
+  "status": "세상의 편견에 너의 목소리로 답해줘",
   "action": 0,
-  "relation": 0
+  "relation": 1
 }
 ```
 
@@ -153,6 +155,9 @@ Name | Type | Description
 userId | Integer | 플러스친구 userId (친구여부 확인 및 프로필 연결 정보)
 type | String | 플러스친구 or 옐로아이디 구분 (p|y)
 imageUrl | String | 플러스친구 프로필 이미지 url (kage profile)
+url | String | 앱스킴
+webUrl | String | 앱스킴이 동작하지 않을 경우 실행
+downloadId | String | webUrl이 비어있고 앱이 설치되지 않은 경우 다운로드를 위한 Id
 title | String | 플러스친구 이름
 status | String | 플러스친구 상태메세지 또는 입력한 문구
 action | Integer | 동작 타입<br>0: userId를 이용한 프로필 열기<br>(가정)1: 앱스킴을 이용한 프로필 열기<br>(가정)2: 앱스킴을 이용한 기타 행위
