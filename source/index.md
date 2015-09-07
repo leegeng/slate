@@ -131,7 +131,32 @@ extra? | Hash | 노출 대상에 대한 추가 정보
 Name | Type | Description
 --------- | --------- | ---------
 relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든 대상<br>1: 유저가 서비스와 관계가 없을 경우 (미가입자 혹은 친구 아님, 서비스->사용자 단방향 친구 개념)<br>2: 유저가 서비스와 관계가 있을 경우 (가입자 혹은 친구 관계, 서비스<->사용자 쌍방 친구 개념) 
-plusFriendId? | Integer | service="plusFriend" 일 경우에만 내려오며, 플친의 user_id로 친구 여부를 판단하는 용도
+
+### PlusFriend
+
+> Example for plusfriend object
+
+```json
+{
+  "userId": 50793722,
+  "type": "p",
+  "imageUrl": "/talkp/wkkiFAguIn/xAYwVpmuZy6GLjAhC5yd91/det19e_110x110_c.jpg",
+  "title": "olleh"
+  "status": "반가워요, olleh 플러스친구입니다.",
+  "action": 0,
+  "relation": 0
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+userId | Integer | 플러스친구 userId (친구여부 확인 및 프로필 연결 정보)
+type | String | 플러스친구 or 옐로아이디 구분 (p|y)
+imageUrl | String | 플러스친구 프로필 이미지 url (kage profile)
+title | String | 플러스친구 이름
+status | String | 플러스친구 상태메세지 또는 입력한 문구
+action | Integer | 동작 타입<br>0: userId를 이용한 프로필 열기<br>(가정)1: 앱스킴을 이용한 프로필 열기<br>(가정)2: 앱스킴을 이용한 기타 행위
+relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든 대상<br>1: 유저가 서비스와 관계가 없을 경우 (미가입자 혹은 친구 아님, 서비스->사용자 단방향 친구 개념)<br>2: 유저가 서비스와 관계가 있을 경우 (가입자 혹은 친구 관계, 서비스<->사용자 쌍방 친구 개념)
 
 
 ## /:agent/inapp_widget/more.json
@@ -145,7 +170,8 @@ plusFriendId? | Integer | service="plusFriend" 일 경우에만 내려오며, �
   "attachment": {
     "kakaoplace": KakaoPlaceObject,
     "kakaomap": KakaoMapObject,
-    "banners": [BannerObject]
+    "banners": [BannerObject],
+    "plusfriend": PlusFriendObject
   },
   "layout": ["kakaoplace", "kakaomap"]
 }
@@ -167,9 +193,9 @@ aa | String | uuid (adid)
 Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상<br>-500: 실패
-type | Integer | 1: location<br>2: banner
+type | Integer | 1: location<br>2: banner<br>3: plusfriend
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
-layout | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
+layout? | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
 
 ## /:agent/inapp_widget/more_action.json
 
