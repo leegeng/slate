@@ -312,7 +312,8 @@ value | Object(String or Array of ContentItems) | 각 타입에 대한 속성값
 {
   "status": 0,
   "feeds": [{FEED}, {FEED}],
-  "last": false
+  "last": false,
+  "tatalCnt": 10
 }
 ```
 
@@ -325,7 +326,7 @@ value | Object(String or Array of ContentItems) | 각 타입에 대한 속성값
 Name | Type | Description
 --------- | --------- | ---------
 cursor | Integer | 페이징을 위한 next cursor
-type? | String | 'profile' 일 경우 프로필 이미지 변경 피드만 내려줌. 
+type? | Integer | 1=프로필 피드만, 3=커버 피드만, 없거나 다른값이면 모든 피드
 
 * Response
 
@@ -334,6 +335,7 @@ Name | Type | Description
 status | Integer | 0: 정상, -500: 에러
 feeds | Array of Feed | Feed 데이터
 last | boolean | 다음 피드가 있는지 여부
+totalCnt | Integer | 전체 피드 갯수. type=1 or 3 일 때만 전체 갯수이고 다른 경우에는 항상 0이다.
 
 ## /:agent/profile3/friend_feeds.json
 
@@ -343,7 +345,8 @@ last | boolean | 다음 피드가 있는지 여부
 {
   "status": 0,
   "feeds": [{FEED}, {FEED}],
-  "last": true
+  "last": true,
+  "tatalCnt": 10
 }
 ```
 
@@ -357,7 +360,7 @@ Name | Type | Description
 --------- | --------- | ---------
 id | Integer | 친구의 user_id
 cursor | Integer | 페이징을 위한 next cursor
-type? | String | 'profile' 일 경우 프로필 이미지 변경 피드만 내려줌.
+type? | Integer | 1=프로필 피드만, 3=커버 피드만, 없거나 다른값이면 모든 피드
 
 * Response
 
@@ -366,6 +369,7 @@ Name | Type | Description
 status | Integer | 0: 정상, -500: 에러
 feeds | Array of Feed | Feed 데이터
 last | boolean | 다음 피드가 있는지 여부
+totalCnt | Integer | 전체 피드 갯수. type=1 or 3 일 때만 전체 갯수이고 다른 경우에는 항상 0이다.
 
 ## /:agent/profile3/feed.json
 
