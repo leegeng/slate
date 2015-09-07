@@ -276,7 +276,6 @@ extra | FeedExtra | 부가 정보 필드 ...
 {
   "likes": 123,
   "likeUserIds": [1,2,3,4,5],
-  "cursor": 0,
   "liked": false
 }
 ```
@@ -284,8 +283,7 @@ extra | FeedExtra | 부가 정보 필드 ...
 Name | Type | Description
 --------- | --------- | ---------
 likes | Integer | 피드에 좋아요한 친구 수
-likeUserIds | Array of Integer | 피드에 좋아요한 친구 리스트 (max=30)
-cursor | long | 피드에 좋아요한 친구 리스트 페이징을 위한 cursor
+likeUserIds? | Array of Integer | 피드에 좋아요한 친구 리스트 (max=30)
 liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드인 경우)
 
 ### FeedExtra
@@ -295,13 +293,8 @@ liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드
 ```json
 {
   "profileImagePath": "/talkp/wkka1wrLYf/5VV1GnauTwKAgRkBGEZhI0/uphy4g.jpg",
-  "serviceExtraInfo": ["느낌 6", "댓글 4", "공유 10"],
   "extraImages": 5,
   "backgroundImagePath": "http://th-p.talk.kakao.co.kr/talkp/wkkLnFWcjv/pRktMkmNRMJjnsvWSeRLC1/up1m4v.jpg",
-  "music": {
-    "artist": "옥상달빛",
-    "track": "희안한 시대"
-  },
   "from": {
     "downloadId": "com.kakao.story",
     "appUrl": "kakaostory://profile?idtype=0&from=talk&id=491632",
@@ -313,10 +306,8 @@ liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드
 Name | Type | Description
 --------- | --------- | ---------
 profileImagePath | String | 프로필 이미지 변경 피드의 경우, update_settings.json으로 바로 넘길 수 있는 path를 내려줌.
-serviceExtraInfo | Array of String | blog type 피드의 경우, 하단에 노출될 추가 정보를 내려줌.
 extraImages | Integer | blog type 피드의 경우, 원본 게시물이 두 개 이상의 이미지가 있을 경우 추가 이미지 여부를 알려줄 수 있도록 이미지 수를 내려줌.
 backgroundImagePath | String | 상태메세지 변경 피드의 경우, 변경 시점의 backgroundImagePath를 가지고 있음.
-music | Music | music 피드의 경우 추가 메타 정보를 가짐. 
 from | Hash | 프사/배경 이미지의 경우 다른 서비스에서 가져온 경우 값을 가짐.
 
 ### ContentItem
