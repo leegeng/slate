@@ -306,6 +306,93 @@ Name | Type | Description
 type | String | ContentItem의 타입 명시 자세한 스펙은 () 참조
 value | Object(String or Array of ContentItems) | 각 타입에 대한 속성값
 
+### Profile
+
+> Example for Profile object
+
+```json
+{
+  "backgroundImageUrl": "~~~",
+  "feeds": [Feed],
+  "profileFeeds": {
+    "tatalCnt": 123,
+    "feeds": [Feed]
+  },
+  "backgroundFeeds": {
+    "totalCnt": 123,
+    "feeds": [Feed]
+  },
+  "action": Action,
+  "event": Event,
+  "birthday": "0128",
+  "allowStory": true,
+  "storyUrl": "~~~",
+  "storyWebUrl": "~~"
+}
+```
+
+Name | Type | Description
+--------- | --------- | ---------
+backgroundImageUrl | String | 배경이미지 url
+feeds? | Array of Feed | 전체 타입의 최근 피드 n개
+profileFeeds? | Hash | 프로필 이미지 타입의 최근 피드 m개<br>* totalCnt: 해당 타입 피드의 수<br>* feeds: 해당 타입의 피드 리스트
+backgroundFeeds? | Hash | 배경이미지 타입의 최근 피드 m개<br>* totalCnt: 해당 타입 피드의 수<br>* feeds: 해당 타입의 피드 리스트
+action? | Action | action object (프로필 상단 영역)
+event? | Event | event object (프로필 상단 영역)
+birthday? | String | user의 생일 정보 (MMDD) - 생일 당일에만 내려감.
+allowStory? | Boolean | 스토리 버튼 노출 여부, <br>
+                       allowStory=true이면 스토리 버튼을 노출하고 storyUrl의 값을 링크로 연결함.<br>
+                       allowStory=false 이면 스토리 버튼을 노출하지 않음. <br>
+                       allowStory가 클라에 저장되어 있지 않을 때는 feeds가 있을 경우에만 스토리 버튼을 노출하고,<br> storyUrl은 kakaostory://profile?idtype=0&from=talk&id=account_id 로 링크를 연결함<br>
+storyUrl? | String | 스토리 프로필 url - allowStory가 false 인 경우에는 내려가지 않음
+storyWebUrl? | String | 스토리 프로필 web url - allowStory가 false 인 경우와 데이터가 없는 경우에는 내려가지 않음
+
+## /:agent/profile3/me.json
+
+> Response Example for /:agent/profile3/me.json
+
+```json
+{
+  "userId": 1234,
+  "profile": Profile
+}
+```
+
+* 내 프로필 내려받기
+* Domain : katalk.kakao.com
+* Request Headers : A S
+* Method : GET
+* Request Parameters
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러
+profile | Profile | Profile 데이터
+
+## /:agent/profile3/friend.json
+
+> Response Example for /:agent/profile3/friend.json
+
+```json
+{
+  "userId": 1234,
+  "profile": Profile
+}
+```
+
+* 친구 프로필 내려받기
+* Domain : katalk.kakao.com
+* Request Headers : A S
+* Method : GET
+* Request Parameters
+* Response
+
+Name | Type | Description
+--------- | --------- | ---------
+status | Integer | 0: 정상, -500: 에러, -1002 (E_NO_SUCH_USER_FOUND) : 유저 없음 (이 경우 delete.json을 호출하도록 함)
+profile | Profile | Profile 데이터
+
 ## /:agent/profile3/my_feeds.json
 
 > Response Example for /:agent/profile3/my_feeds.json 
