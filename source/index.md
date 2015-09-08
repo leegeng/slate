@@ -340,10 +340,7 @@ backgroundFeeds? | Hash | 배경이미지 타입의 최근 피드 m개<br>* tota
 action? | Action | action object (프로필 상단 영역)
 event? | Event | event object (프로필 상단 영역)
 birthday? | String | user의 생일 정보 (MMDD) - 생일 당일에만 내려감.
-allowStory? | Boolean | 스토리 버튼 노출 여부, <br>
-                       allowStory=true이면 스토리 버튼을 노출하고 storyUrl의 값을 링크로 연결함.<br>
-                       allowStory=false 이면 스토리 버튼을 노출하지 않음. <br>
-                       allowStory가 클라에 저장되어 있지 않을 때는 feeds가 있을 경우에만 스토리 버튼을 노출하고,<br> storyUrl은 kakaostory://profile?idtype=0&from=talk&id=account_id 로 링크를 연결함<br>
+allowStory? | Boolean | 스토리 버튼 노출 여부, <br>allowStory=true이면 스토리 버튼을 노출하고 storyUrl의 값을 링크로 연결함.<br>allowStory=false 이면 스토리 버튼을 노출하지 않음. <br>allowStory가 클라에 저장되어 있지 않을 때는 feeds가 있을 경우에만 스토리 버튼을 노출하고,<br> storyUrl은 kakaostory://profile?idtype=0&from=talk&id=account_id 로 링크를 연결함
 storyUrl? | String | 스토리 프로필 url - allowStory가 false 인 경우에는 내려가지 않음
 storyWebUrl? | String | 스토리 프로필 web url - allowStory가 false 인 경우와 데이터가 없는 경우에는 내려가지 않음
 
