@@ -242,7 +242,6 @@ status | Integer | 0: 정상<be>-500: 실패
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
   "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk",
   "updatedAt": 1438838295,
-  "like": Like,
   "feedMessage": "스토리 게시물을 등록했습니다.",
   "permission": 0,
   "type": 1,
@@ -262,29 +261,10 @@ serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동�
 webUrl? | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 serviceWebUrl? | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 updatedAt | Integer | 피드 콘텐츠의 update 시간
-like | Like | 피드에 대한 좋아요 객체
 feedMessage | String | 피드 헤더에 출력되는 메세지
 permission? | Integer | 공개범위 (본인 피드에만 내려옴)
 type | Integer | 피드 템플릿 타입 (참고: xxx)
 extra | FeedExtra | 부가 정보 필드 ...
-
-### Like
-
-> Example for Like object
-
-```json
-{
-  "likes": 123,
-  "likeUserIds": [1,2,3,4,5],
-  "liked": false
-}
-```
-
-Name | Type | Description
---------- | --------- | ---------
-likes | Integer | 피드에 좋아요한 친구 수
-likeUserIds? | Array of Integer | 피드에 좋아요한 친구 리스트 (max=30)
-liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드인 경우)
 
 ### FeedExtra
 
@@ -297,7 +277,7 @@ liked? | boolean | 피드에 대해 좋아요를 했는지 여부 (친구 피드
   "backgroundImagePath": "http://th-p.talk.kakao.co.kr/talkp/wkkLnFWcjv/pRktMkmNRMJjnsvWSeRLC1/up1m4v.jpg",
   "from": {
     "downloadId": "com.kakao.story",
-    "appUrl": "kakaostory://profile?idtype=0&from=talk&id=491632",
+    "url": "kakaostory://profile?idtype=0&from=talk&id=491632",
     "webUrl": "https://alpha-story-web.kakao.com/_FTCzg4?_r=talk"
   }
 }
@@ -413,44 +393,6 @@ Name | Type | Description
 status | Integer | 0: 정상, -500: 에러
 feed | Feed | Feed 데이터
 
-## /:agent/profile3/like.json
-
-* 프로필 피드에 대한 좋아요
-* Domain : katalk.kakao.com
-* Required Headers : A, S
-* Method : GET
-* Request Parameters
-
-Name | Type | Description
---------- | --------- | ---------
-user_id | Integer | 피드를 소유한 사용자의 user_id
-feed_id | String | Feed의 id
-
-* Response
-
-Name | Type | Description
---------- | --------- | ---------
-status | Integer | 0: 정상, -500: 에러
-
-## /:agent/profile3/unlike.json
-
-* 프로필 피드에 대한 좋아요 취소
-* Domain : katalk.kakao.com
-* Required Headers : A, S
-* Method : GET
-* Request Parameters
-
-Name | Type | Description
---------- | --------- | ---------
-user_id | Integer | 피드를 소유한 사용자의 user_id
-feed_id | String | Feed의 id
-
-* Response
-
-Name | Type | Description
---------- | --------- | ---------
-status | Integer | 0: 정상, -500: 에러
-
 ## /:agent/profile3/change_feed_permission.json
 
 * 프로필 피드의 공개 범위 변경
@@ -487,54 +429,6 @@ feed_id | String | Feed의 id
 Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상, -500: 에러
-
-## /:agent/profile3/like_members.json
-
-> Response Example for /:agent/profile3/like_members.json
-
-```json
-{
-  "status": 0,
-  "members": [
-     {
-      "userId": 1,
-      "nickName": "Stark",
-      "profileImageUrl": "",
-      "fullProfileImageUrl": "",
-      "originalProfileImageUrl": "",
-      "type": -100,
-      "statusMessage": "Good Good"
-     },
-     {
-       "userId": 2,
-       "nickName": "Stark2",
-       "profileImageUrl": "",
-       "fullProfileImageUrl": "",
-       "originalProfileImageUrl": "",
-       "type": -100,
-       "statusMessage": "Good Good Good"
-     }
-  ]
-}
-```
-
-* 피드에 좋아요한 친구 정보
-* Domain : katalk.kakao.com
-* Request Header : A S
-* Method : POST
-* Request Parameters
-
-Name | Type | Description
---------- | --------- | ---------
-feedId | String | 피드 id (어뷰징 방지를 위해 feed id를 받음)
-userIds | Array of userId | 좋아요한 친구 목록에서 클라에 정보가 없는 유저 (max. 100)
-
-* Response
-
-Name | Type | Description
---------- | --------- | ---------
-status | Integer | 0: 정상, -500: 에러
-members | Array of FeedMember | 요청된 사용자들의 기본 프로필 정보 리스트
 
 # 톡 X 스토리 레버리징 1차(프로필 배경/프사 이미지) API
 
