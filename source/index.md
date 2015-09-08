@@ -242,7 +242,6 @@ status | Integer | 0: 정상<be>-500: 실패
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
   "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk",
   "updatedAt": 1438838295,
-  "timeLapse": 1234,
   "like": Like,
   "feedMessage": "스토리 게시물을 등록했습니다.",
   "permission": 0,
@@ -263,7 +262,6 @@ serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동�
 webUrl? | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 serviceWebUrl? | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 updatedAt | Integer | 피드 콘텐츠의 update 시간
-timeLapse? | Integer | 피드 콘텐츠의 update 시간이 12시간 이내일 경우 그 차를 내려줌 (상대적 시간 차이로 인한 시간 오류를 줄이기 위해)
 like | Like | 피드에 대한 좋아요 객체
 feedMessage | String | 피드 헤더에 출력되는 메세지
 permission? | Integer | 공개범위 (본인 피드에만 내려옴)
