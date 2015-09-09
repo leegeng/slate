@@ -98,7 +98,7 @@ downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
   "downloadId": "",
   "service": "kakaopay",
   "extra": {
-    "relation": 0,
+    "relation": 0
   }
 }
 ```
