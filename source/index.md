@@ -72,7 +72,6 @@ downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
 
 ```json
 {
-  "iconUrl": "",
   "url": "http://m.map.daum.net/place?confirmid=17011742",
   "webUrl": "http://m.map.daum.net/place?confirmid=17011742",
   "downloadId": "com.kakao.map"
@@ -81,7 +80,6 @@ downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
 
 Name | Type | Description
 --------- | --------- | ---------
-iconUrl | String | 노출할 아이콘 URL (공백일 경우 디폴트 이미지)
 url | String | 앱스킴
 webUrl | String | 앱이 설치되어 있지 않을 경우 연결할 모바일웹 주소
 downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
@@ -101,7 +99,6 @@ downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
   "service": "kakaopay",
   "extra": {
     "relation": 0,
-    "plusFriendId": 1234
   }
 }
 ```
@@ -177,8 +174,7 @@ relation | Integer | 서비스와 사용자의 관계를 나타냄.<br>0: 모든
     "kakaomap": KakaoMapObject,
     "banners": [BannerObject],
     "plusfriend": PlusFriendObject
-  },
-  "layout": ["kakaoplace", "kakaomap"]
+  }
 }
 ```
 
@@ -200,7 +196,6 @@ Name | Type | Description
 status | Integer | 0: 정상<br>-500: 실패
 type | Integer | 1: location<br>2: banner<br>3: plusfriend
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
-layout? | Array of String | type에 대한 템플릿 레이아웃에 콘텐츠가 들어가는 순서를 명시함. ex. ['kakaoplace', 'kakaomap']
 
 ## /:agent/inapp_widget/more_action.json
 
