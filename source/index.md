@@ -237,7 +237,8 @@ status | Integer | 0: 정상<be>-500: 실패
   "webUrl": "https://story.kakao.com/leegeng?_r=talk",
   "serviceWebUrl": "https://story.kakao.com/leegeng?_r=talk",
   "updatedAt": 1438838295,
-  "feedMessage": "스토리 게시물을 등록했습니다.",
+  "cursor": 1438838295123,
+  "feedMessage": "",
   "permission": 0,
   "type": 1,
   "extra": {}
@@ -256,10 +257,11 @@ serviceUrl | String | 피드 제공 서비스 아이콘을 눌렀을 때 이동�
 webUrl? | String | 피드를 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 serviceWebUrl? | String | 피드 제공 서비스 아이콘을 눌렀을 때 앱이 없을 경우 인앱브라우저로 오픈할 웹페이지
 updatedAt | Integer | 피드 콘텐츠의 update 시간
-feedMessage | String | 피드 헤더에 출력되는 메세지
+cursor | Long | 피드 콘텐츠의 update 시간 millisecond
+feedMessage | String | 피드 헤더에 출력되는 메세지 (커스텀)
 permission? | Integer | 공개범위 (본인 피드에만 내려옴)
-type | Integer | 피드 템플릿 타입 (참고: xxx)
-extra | FeedExtra | 부가 정보 필드 ...
+type | Integer | 피드 템플릿 타입 (참고: http://wiki.daumkakao.com/pages/viewpage.action?pageId=332048927)
+extra | FeedExtra | 부가 정보 필드
 
 ### FeedExtra
 
@@ -308,7 +310,10 @@ value | Object(String or Array of ContentItems) | 각 타입에 대한 속성값
 ```json
 {
   "backgroundImageUrl": "~~~",
-  "feeds": [Feed],
+  "feeds": {
+    "last": true,
+    "feeds": [Feed]
+  },
   "profileFeeds": {
     "tatalCnt": 123,
     "feeds": [Feed]
