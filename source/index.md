@@ -360,6 +360,11 @@ storyWebUrl? | String | 스토리 프로필 web url - allowStory가 false 인 �
 * Request Headers : A S
 * Method : GET
 * Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+checkProfile2Photos | Boolean | (Optional) 사용자가 Profile2의 Photo 컨텐츠가 있는지 확인이 필요할 경우
+
 * Response
 
 Name | Type | Description
@@ -383,6 +388,11 @@ profile | Profile | Profile 데이터
 * Request Headers : A S
 * Method : GET
 * Request Parameters
+
+Name | Type | Description
+--------- | --------- | ---------
+id | Integer | 친구의 userId
+
 * Response
 
 Name | Type | Description
