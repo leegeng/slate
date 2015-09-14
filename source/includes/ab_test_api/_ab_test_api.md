@@ -2,6 +2,17 @@
 
 ## /:agent/account/more_settings.json
 
+> Response Example
+
+```json
+{
+  "abTests": {
+    "id": "M.newBadge.150914",
+    "type" 0
+  }
+}
+```
+
 * 추가되는 필드만 명시함
 * Response
 
