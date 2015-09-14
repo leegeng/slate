@@ -8,7 +8,7 @@
 {
   "abTests": {
     "id": "M.newBadge.150914",
-    "type" 0
+    "type": 0
   }
 }
 ```
