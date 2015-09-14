@@ -75,9 +75,7 @@ downloadId | String | 앱 설치 여부를 판단하기 위한 downloadId
   "webUrl": "http://paybiz-web.kakao.com/event/kakaopay/index201508/kakaopay_event_cgv.html",
   "downloadId": "",
   "service": "kakaopay",
-  "extra": {
-    "relation": 0
-  }
+  "relation": 0
 }
 ```
 
@@ -90,21 +88,7 @@ url | String | 앱스킴 (앱스킴 연동이 필요한 경우)
 webUrl | String | 앱스킴이 존재하는 경우, 앱이 없을 때, 그렇지 않은 경우 웹페이지로 이동할 url 
 downloadId | String | 앱스킴이 있는 경우 앱 설치 여부를 판단하기 위한 downloadId
 service | String | 배너 레버리지 서비스명
-extra? | Hash | 노출 대상에 대한 추가 정보 
-
-### bannerExtra
-
-> Example for bannerExtra object
-
-```json
-{
-  "relation": 0
-}
-```
-
-Name | Type | Description
---------- | --------- | ---------
-relation | Integer | 서비스와 사용자의 관계에 대한 노출조건을 나타냄.<br>0: 모든 대상에게 노출<br>1: 유저가 서비스와 관계가 없을 경우에만 노출 (미가입자 혹은 친구 아님, 서비스->사용자 단방향 친구 개념)<br>2: 유저가 서비스와 관계가 있을 경우에만 노출 (가입자 혹은 친구 관계, 서비스<->사용자 쌍방 친구 개념) 
+relation | Integer | 서비스와 사용자의 관계에 대한 노출조건을 나타냄.<br>0: 모든 대상에게 노출<br>1: 유저가 서비스와 관계가 없을 경우에만 노출 (미가입자 혹은 친구 아님, 서비스->사용자 단방향 친구 개념)<br>2: 유저가 서비스와 관계가 있을 경우에만 노출 (가입자 혹은 친구 관계, 서비스<->사용자 쌍방 친구 개념)  
 
 ### PlusFriend
 
