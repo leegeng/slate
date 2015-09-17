@@ -92,6 +92,15 @@ Service provider -> 다음카카오 API Hub -> iceland-papi
  
 iceland-papi thrift client를 이용하여 아래와 같은 메소드를 호출함.
 
+### iceland-papi server information
+
+phase | hosts | port
+--------- | --------- | ---------
+alpha | alpha-papi.talk.kakao.com | 8282
+sandbox | sandbox-papi.talk.kakao.com | 8282
+beta | beta-papi.talk.kakao.com | 8282
+production | papi.talk.kakao.com<br>papi2.talk.kakao.com | 8282
+
 ### Argument Type
 
 Action | Method
@@ -102,5 +111,51 @@ Delete | deleteProfileFeed
 Delete | deleteAllProfileFeed
 
 ### Feed Object
+
+> Example of Feed object
+
+```json
+{
+  "user_id"=>1234, 
+  "image_url"=>"~~~~", 
+  "text"=>"~~~", 
+  "thumbnail_url"=>"~~~", 
+  "client_id"=> "86680234706731008",
+  "client_pk"=>"2297959_94053101758702514",
+  "created_at"=> 1437969261, # Timestamp 
+  "updated_at"=> 1437969261,
+  "urls" => {"root"=>"~~", "web"=>"~~"}
+}
+```
+
+* create/update request
+
+Name | Type | Description
+--------- | --------- | ---------
+account_id | Long | 사용자의 account_id
+user_id | Long | 사용자의 user_id
+client_id | Long | 카카오계정에서 사용하는 서비스의 ID
+client_pk | String | 콘텐츠 고유의 ID
+image_url | String | 원본 이미지 Url
+thumbnail_url | String | 썸네일 이미지 Url
+urls | Object | 랜딩 url 주소
+text | String | 콘텐츠의 텍스트
+updated_at | String | 콘텐츠가 update된 시간<br>"yyyy-MM-dd'T'HH:mm:ssZ" 포맷
+created_at | String | 콘텐츠가 create된 시간<br>"yyyy-MM-dd'T'HH:mm:ssZ" 포맷
+
+* delete request
+
+Name | Type | Description
+--------- | --------- | ---------
+account_id | Long | 사용자의 account_id
+client_id | Long | 카카오계정에서 사용하는 서비스의 ID
+client_pk | String | 콘텐츠의 고유 ID
+
+* delete_all request
+
+Name | Type | Description
+--------- | --------- | ---------
+account_id | Long | 사용자의 account_id
+client_id | Long | 카카오 계정에서 사용하는 서비스의 ID
 
 ### Example
