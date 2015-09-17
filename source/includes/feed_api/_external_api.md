@@ -33,7 +33,7 @@ feed | Feed | Feed Object
 {
   "user_id": 123456,
   "account_id": 78806689,
-  "client_id": 86680234706731008, 
+  "client_id": "86680234706731008", 
   "client_pk": "73328833_00000000000000001",
   "urls": {"root": "kakaostory://profile?id=73328833&name=에리츄&from=talk", "web": "https://story.kakao.com/exolechue"},
   "media_type":"image", 
@@ -54,7 +54,7 @@ Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
 user_id | Long | 사용자의 user_id
-client_id | Long | 카카오계정에서 사용하는 서비스의 ID
+client_id | String | 카카오계정에서 사용하는 서비스의 ID
 client_pk | String | 콘텐츠 고유의 ID
 urls | Object | 랜딩 url 주소
 media_type | String | 미디어 타입 (text, image, image/gif, video ... )
@@ -67,7 +67,7 @@ extra | Hash | 부가 정보
 Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
-client_id | Long | 카카오계정에서 사용하는 서비스의 ID
+client_id | String | 카카오계정에서 사용하는 서비스의 ID
 client_pk | String | 콘텐츠의 고유 ID
 
 * delete_all request
@@ -75,7 +75,7 @@ client_pk | String | 콘텐츠의 고유 ID
 Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
-client_id | Long | 카카오 계정에서 사용하는 서비스의 ID
+client_id | String | 카카오 계정에서 사용하는 서비스의 ID
 
 ### Url Object
 
@@ -122,7 +122,7 @@ Delete | deleteAllProfileFeed
 {
   "user_id": 123456,
   "account_id": 78806689,
-  "client_id": 86680234706731008, 
+  "client_id": "86680234706731008", 
   "client_pk": "73328833_00000000000000001",
   "urls": {"root": "kakaostory://profile?id=73328833&name=에리츄&from=talk", "web": "https://story.kakao.com/exolechue"},
   "media_type":"image", 
@@ -143,7 +143,7 @@ Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
 user_id | Long | 사용자의 user_id
-client_id | Long | 카카오계정에서 사용하는 서비스의 ID
+client_id | String | 카카오계정에서 사용하는 서비스의 ID
 client_pk | String | 콘텐츠 고유의 ID
 urls | Object | 랜딩 url 주소
 media_type | String | 미디어 타입 (text, image, image/gif, video ... )
@@ -156,7 +156,7 @@ extra | Hash | 부가 정보
 Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
-client_id | Long | 카카오계정에서 사용하는 서비스의 ID
+client_id | String | 카카오계정에서 사용하는 서비스의 ID
 client_pk | String | 콘텐츠의 고유 ID
 
 * delete_all request
@@ -164,6 +164,6 @@ client_pk | String | 콘텐츠의 고유 ID
 Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
-client_id | Long | 카카오 계정에서 사용하는 서비스의 ID
+client_id | String | 카카오 계정에서 사용하는 서비스의 ID
 
 ### Example
