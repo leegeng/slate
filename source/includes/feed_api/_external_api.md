@@ -31,16 +31,20 @@ feed | Feed | Feed Object
 
 ```json
 {
-  "urls": {"root": "kakaostory://profile?id=73328833&name=에리츄&from=talk", "web": "https://story.kakao.com/exolechue"},
-  "account_id": 78806689, 
-  "updated_at": "2015-09-14T06:48:17Z", 
-  "media_type":"image", 
-  "image_url": "http://dn-l0-story.kakao.co.kr/dn/byy3jl/hygzGpUHv1/h0UIahVetlRNPG0z3IQ9V0/img_l.jpg?width=480&height=578", 
-  "created_at": "2015-09-14T06:48:17Z", 
-  "text": "", 
-  "thumbnail_url": "http://dn-s-story.kakao.co.kr/dn/byy3jl/hygzGpUHv1/h0UIahVetlRNPG0z3IQ9V0/img_m.jpg?width=480&height=578", 
+  "user_id": 123456,
+  "account_id": 78806689,
   "client_id": 86680234706731008, 
-  "client_pk": "73328833_00000000000000001"
+  "client_pk": "73328833_00000000000000001",
+  "urls": {"root": "kakaostory://profile?id=73328833&name=에리츄&from=talk", "web": "https://story.kakao.com/exolechue"},
+  "media_type":"image", 
+  "view_type": 4,
+  "contents": [{"type": "image", "value": "http://dn-l0-story.kakao.co.kr/dn/byy3jl/hygzGpUHv1/h0UIahVetlRNPG0z3IQ9V0/img_l.jpg?width=480&height=578"}, {"type": "text-4", "value": "test"}], 
+  "extra": {
+    "extraImages": 5,
+    "backgroundImagePath": "~~~",
+    "buttonTitle": "설치하기",
+    "urls": {~~}
+  }
 }
 ```
 
@@ -49,14 +53,14 @@ feed | Feed | Feed Object
 Name | Type | Description
 --------- | --------- | ---------
 account_id | Long | 사용자의 account_id
+user_id | Long | 사용자의 user_id
 client_id | Long | 카카오계정에서 사용하는 서비스의 ID
 client_pk | String | 콘텐츠 고유의 ID
-image_url | String | 원본 이미지 Url
-thumbnail_url | String | 썸네일 이미지 Url
 urls | Object | 랜딩 url 주소
-text | String | 콘텐츠의 텍스트
-updated_at | String | 콘텐츠가 update된 시간<br>"yyyy-MM-dd'T'HH:mm:ssZ" 포맷
-created_at | String | 콘텐츠가 create된 시간<br>"yyyy-MM-dd'T'HH:mm:ssZ" 포맷
+media_type | String | 미디어 타입 (text, image, image/gif, video ... )
+view_type | Integer | 톡 프로필 피드 템플릿 타입
+contents | Array of Hash | 콘텐츠 내용
+extra | Hash | 부가 정보
 
 * delete request
 
@@ -116,15 +120,20 @@ Delete | deleteAllProfileFeed
 
 ```json
 {
-  "user_id": 1234, 
-  "image_url": "~~~~", 
-  "text": "~~~", 
-  "thumbnail_url": "~~~", 
-  "client_id": "86680234706731008",
-  "client_pk": "2297959_94053101758702514",
-  "created_at": 1437969261, # Timestamp 
-  "updated_at": 1437969261,
-  "urls": {"root": "~~", "web": "~~"}
+  "user_id": 123456,
+  "account_id": 78806689,
+  "client_id": 86680234706731008, 
+  "client_pk": "73328833_00000000000000001",
+  "urls": {"root": "kakaostory://profile?id=73328833&name=에리츄&from=talk", "web": "https://story.kakao.com/exolechue"},
+  "media_type":"image", 
+  "view_type": 4,
+  "contents": [{"type": "image", "value": "http://dn-l0-story.kakao.co.kr/dn/byy3jl/hygzGpUHv1/h0UIahVetlRNPG0z3IQ9V0/img_l.jpg?width=480&height=578"}, {"type": "text-4", "value": "test"}], 
+  "extra": {
+    "extraImages": 5,
+    "backgroundImagePath": "~~~",
+    "buttonTitle": "설치하기",
+    "urls": {~~}
+  }
 }
 ```
 
@@ -136,12 +145,11 @@ account_id | Long | 사용자의 account_id
 user_id | Long | 사용자의 user_id
 client_id | Long | 카카오계정에서 사용하는 서비스의 ID
 client_pk | String | 콘텐츠 고유의 ID
-image_url | String | 원본 이미지 Url
-thumbnail_url | String | 썸네일 이미지 Url
 urls | Object | 랜딩 url 주소
-text | String | 콘텐츠의 텍스트
-updated_at | String | 콘텐츠가 update된 시간<br>"yyyy-MM-dd'T'HH:mm:ssZ" 포맷
-created_at | String | 콘텐츠가 create된 시간<br>"yyyy-MM-dd'T'HH:mm:ssZ" 포맷
+media_type | String | 미디어 타입 (text, image, image/gif, video ... )
+view_type | Integer | 톡 프로필 피드 템플릿 타입
+contents | Array of Hash | 콘텐츠 내용
+extra | Hash | 부가 정보
 
 * delete request
 
