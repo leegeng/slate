@@ -116,15 +116,15 @@ Delete | deleteAllProfileFeed
 
 ```json
 {
-  "user_id"=>1234, 
-  "image_url"=>"~~~~", 
-  "text"=>"~~~", 
-  "thumbnail_url"=>"~~~", 
-  "client_id"=> "86680234706731008",
-  "client_pk"=>"2297959_94053101758702514",
-  "created_at"=> 1437969261, # Timestamp 
-  "updated_at"=> 1437969261,
-  "urls" => {"root"=>"~~", "web"=>"~~"}
+  "user_id": 1234, 
+  "image_url": "~~~~", 
+  "text": "~~~", 
+  "thumbnail_url": "~~~", 
+  "client_id": "86680234706731008",
+  "client_pk": "2297959_94053101758702514",
+  "created_at": 1437969261, # Timestamp 
+  "updated_at": 1437969261,
+  "urls": {"root": "~~", "web": "~~"}
 }
 ```
 
