@@ -7,8 +7,7 @@
 ```json
 {
   "abTests": {
-    "id": "M.newBadge.150914",
-    "type": 0
+    "M.newBadge.151020": 0
   }
 }
 ```
@@ -18,7 +17,7 @@
 
 Name | Type | Description
 --------- | --------- | ---------
-abTests | Array of abTest | A/B 테스트 정보
+abTests | Hash of abTest | A/B 테스트 정보
 
 ## abTest object
 
