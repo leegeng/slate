@@ -285,7 +285,7 @@ permission | Integer | 공개범위
 
 Name | Type | Description
 --------- | --------- | ---------
-status | Integer | 0: 정상, -500: 에러
+status | Integer | 0: 정상<br>-400: 잘못된 요청<br>-404: 없는 피드<br>-500: 에러
 
 ## /:agent/profile3/remove_feed.json
 
