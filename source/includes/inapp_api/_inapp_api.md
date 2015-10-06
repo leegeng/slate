@@ -99,13 +99,14 @@ relation | Integer | 서비스와 사용자의 관계에 대한 노출조건을 
   "userId": 53247774,
   "type": "p",
   "imageUrl": "http://sandbox-th-p.talk.kakao.co.kr/talkp/wkaIAuovUl/L3DlacPpWKUiN5MtOazb0k/jmryu2.jpg",
-  "url": "kakaoplus://plusfriend/friend/@나이키닷컴",
+  "url": "",
   "webUrl": "",
   "downloadId": "com.kakao.talk",
   "title": "나이키닷텀",
   "status": "세상의 편견에 너의 목소리로 답해줘",
   "action": 0,
-  "relation": 1
+  "relation": 1,
+  "uuid": "@나이키닷컴"
 }
 ```
 
@@ -121,6 +122,7 @@ title | String | 플러스친구 이름
 status | String | 플러스친구 상태메세지 또는 입력한 문구
 action | Integer | 동작 타입<br>0: userId를 이용한 친구 추가<br>(가정)1: 앱스킴을 이용한 프로필 열기<br>(가정)2: 앱스킴을 이용한 기타 행위
 relation | Integer | 서비스와 사용자의 관계에 대한 노출조건을 나타냄.<br>0: 모든 대상에게 노출<br>1: 유저가 서비스와 관계가 없을 경우에만 노출 (미가입자 혹은 친구 아님, 서비스->사용자 단방향 친구 개념)<br>2: 유저가 서비스와 관계가 있을 경우에만 노출 (가입자 혹은 친구 관계, 서비스<->사용자 쌍방 친구 개념)
+uuid | String | 플러스친구 uuid
 
 
 ## /:agent/inapp_widget/more.json
