@@ -157,7 +157,7 @@ aa | String | uuid (adid)
 
 Name | Type | Description
 --------- | --------- | ---------
-status | Integer | 0: 정상<br>-500: 실패
+status | Integer | 0: 정상<br>-500: 실패<br>-400: 유효하지 않은 url<br>-404: 위젯 없음<br>-204: 인앱설정 없음
 type | Integer | 1: location<br>2: banner<br>3: plusfriend
 attachment | Hash of leveraging objects | 레버리징 요소들의 속성을 포함함 * kakaoplace * kakaomap
 

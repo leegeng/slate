@@ -304,6 +304,9 @@ feed_id | String | Feed의 id
 Name | Type | Description
 --------- | --------- | ---------
 status | Integer | 0: 정상, -500: 에러
+feeds? | Array of Feed | 전체 타입의 최근 피드 n개
+profileFeeds? | Hash | 프로필 이미지 타입의 최근 피드 m개<br>* totalCnt: 해당 타입 피드의 수<br>* feeds: 해당 타입의 피드 리스트
+backgroundFeeds? | Hash | 배경이미지 타입의 최근 피드 m개<br>* totalCnt: 해당 타입 피드의 수<br>* feeds: 해당 타입의 피드 리스트
 
 ## /:agent/profile3/get_story_profile_bg_image.json
 
