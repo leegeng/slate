@@ -1,55 +1,76 @@
-//= require ../lib/_jquery_ui
-//= require ../lib/_jquery.tocify
-//= require ../lib/_imagesloaded.min
 (function (global) {
   'use strict';
 
+  var headerHeights = {};
+
+  // hides the TOC on mobile devices
   var closeToc = function() {
-    $(".tocify-wrapper").removeClass('open');
+    $(".toc-wrapper").removeClass('open');
     $("#nav-button").removeClass('open');
   };
 
-  var makeToc = function() {
-    global.toc = $("#toc").tocify({
-      selectors: 'h1, h2',
-      extendPage: false,
-      theme: 'none',
-      smoothScroll: false,
-      showEffectSpeed: 0,
-      hideEffectSpeed: 180,
-      ignoreSelector: '.toc-ignore',
-      highlightOffset: 60,
-      scrollTo: -1,
-      scrollHistory: true,
-      hashGenerator: function (text, element) {
-        return element.prop('id');
+  var recacheHeights = function() {
+    headerHeights = {};
+    // TODO deal with duplicate IDs
+
+    $("h1, h2, h3").each(function() {
+      headerHeights[$(this).attr('id')] = $(this).offset().top;
+    });
+  };
+
+  var refreshToc = function() {
+    $(".toc .active").removeClass("active");
+    $(".toc .open").removeClass("open");
+
+    var currentTop = $(document).scrollTop();
+
+    var best = null;
+    for (var name in headerHeights) {
+      if (headerHeights[name] < currentTop + 20 && (headerHeights[name] > headerHeights[best] || best === null)) {
+        best = name;
       }
-    }).data('toc-tocify');
+    }
+
+    $(".toc a[href='#" + best + "']").addClass("active").parentsUntil('.toc', 'li').addClass("open");
+  };
+
+  var debounce = function(func, waitTime) {
+    var timeout = false;
+    return function() {
+      if (timeout === false) {
+        setTimeout(function() {
+          func();
+          timeout = false;
+        }, waitTime);
+        timeout = true;
+      }
+    };
+  };
+
+  var makeToc = function() {
+    recacheHeights();
 
     $("#nav-button").click(function() {
-      $(".tocify-wrapper").toggleClass('open');
+      $(".toc-wrapper").toggleClass('open');
       $("#nav-button").toggleClass('open');
       return false;
     });
 
     $(".page-wrapper").click(closeToc);
-    $(".tocify-item").click(closeToc);
+    $(".toc-item").click(closeToc);
+
+    // reload immediately after scrolling on toc click
+    $('.toc a').click(function() {
+      setTimeout(refreshToc, 1);
+    });
+
+    $(window).scroll(debounce(refreshToc, 200));
+    $(window).resize(debounce(recacheHeights, 200));
   };
 
-  // Hack to make already open sections to start opened,
-  // instead of displaying an ugly animation
-  function animate() {
-    setTimeout(function() {
-      toc.setOption('showEffectSpeed', 180);
-    }, 50);
-  }
+  $(makeToc);
 
-  $(function() {
-    makeToc();
-    animate();
-    $('.content').imagesLoaded( function() {
-      global.toc.calculateHeights();
-    });
-  });
+  global.recacheHeights = recacheHeights;
+
 })(window);
 

@@ -28,7 +28,7 @@ body {
   @extend %default-font;
 }
 
-.tocify, .toc-footer, .lang-selector, .search, #nav-button {
+.tocify, .toc-footer, .lang-selector, #nav-button {
   display: none;
 }
 
@@ -120,23 +120,5 @@ body {
     margin-top: 1.5em;
     margin-bottom: 1.5em;
     line-height: 1.6;
-  }
-
-  aside:before {
-    vertical-align: middle;
-    padding-right: 0.5em;
-    font-size: 14px;
-  }
-
-  aside.notice:before {
-    @extend %icon-info-sign;
-  }
-
-  aside.warning:before {
-    @extend %icon-exclamation-sign;
-  }
-
-  aside.success:before {
-    @extend %icon-ok-sign;
   }
 }
